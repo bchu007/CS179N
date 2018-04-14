@@ -4,6 +4,7 @@
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{changepage}
+\usepackage{hyperref}
 
 \usepackage{enumitem,amssymb}
 \newlist{todolist}{itemize}{2}
@@ -18,42 +19,187 @@
 
 \begin{document}
 \maketitle
+\tableofcontents
 \section{Overview}
-\textbf{Game Engine:} Blender Game Engine
-\\
-\textbf{Genre:} 3D Shooter / Melee
-\\
-\textbf{Objective:} Defend the flag
-\\
-\textbf{Characters:} Player: 
-\\
-\textbf{Setting:}
-\\
+\textbf{Game Engine:} Blender Game Engine\\
+\textbf{Genre:} 3D Third-person Shooter Survival\\
+\textbf{Title:} Narwhals of Good Sleep
+
+\section{Storyline and Objective}
+\subsection{Outline}
+The player is a penguin who is trying to protect themselves from hungry narwhals. The player must also defend their egg (the flag). Unfortunately, the narwhals have surrounded the penguin and are closing in for their final four attacks. The player must survive these attacks in order to win the game. To defend itself the penguin has learned to use firearms and will shoot at the narwhals. Each gun will have its own ammunition. The player can hold an unlimited amount of ammunition.
+
+\subsection{Setting}
+\subsubsection{Map Properties}
+\begin{itemize}
+\item Underwater theme (close to shoreline)
+\item Circular in shape
+\item It will take the player around 1 minute to cross or 30 seconds from the middle to an edge.
+\item Four main locations: Beach, Coral Reef, Sunken Ship, and Underwater Vents/Volcano
+\item Items will spawn randomly around the map but weapons are unique to the region in which they are found.
+\end{itemize}
+
+\subsection{Outsourced Assets}
+\begin{itemize}
+\item Rocks \url{https://assetstore.unity.com/packages/3d/props/exterior/low-poly-styled-rocks-43486}
+\item Ship \url{https://assetstore.unity.com/packages/3d/vehicles/sea/free-ships-104215}
+\item Sword
+\url{https://assetstore.unity.com/packages/3d/props/weapons/rpg-swords-7056}
+\item Sniper
+\url{https://assetstore.unity.com/packages/3d/props/guns/ksvk-russian-sniper-rifle-72270}
+\item Rifle
+\url{https://assetstore.unity.com/packages/3d/props/guns/modern-russian-assault-rifle-46033}
+\end{itemize}
+\subsection{Objective}
+\textbf{Protect the Flag}
+
+\subsubsection{Start}
+The Player will spawn in the center of the map with the flag in front of them to defend. The player must find a weapon/weapons to defend him/herself with and to defend the flag. Certain weapons spawn in certain regions. The player can only carry the flag or a single weapon at a time.
+
+\subsubsection{Waves}
+The player will have one minute to move the flag and gather weapons before the waves of enemies spawn. A predetermined amount of enemies of a set difficulty will spawn per wave. Each wave will last approximately 2-3 minutes. Enemies will attempt to kill the player or flag depending on which is closest and visible. If the player is holding the flag then the enemies will try to attack the player. If the player is damaged while holding the flag they drop it and can't pick it up for 1.5 seconds.\\
+
+After the wave completes, the player will have 1 minute to move to another area and collect new weapons and ammunition before the next wave begins.
+
+\subsection{If the player dies}
+If the player dies, their currently equipped weapon is dropped and they will respawn on top of the flag after 5 seconds with the default weapon.
+\subsection{How to win}
+Survive 4 waves of 2-3 minute continuous spawns. Difficulty increases with each wave. Don't let the flag be destroyed (egg).
+\subsection{How to lose}
+The flag (egg) is destroyed by the enemies.
+
+\section{Characters}
+\subsection{Enemies}
+\begin{itemize}
+\item Nightmare Narwhal
+\end{itemize}
+\subsection{Player}
+\begin{itemize}
+\item Penguin
+\end{itemize}
+
+\subsection{Items}
+\begin{itemize}
+\item Penguin egg (The flag)
+\item Sweeping melee (sword)
+\item Long-ranged gun (Sniper)
+\item Medium-ranged gun (Rifle)
+\item Close-ranged gun (Shotgun)
+\item Explosive (Grenade)
+\end{itemize}
+
+\section{Character-Character Interactions}
+\begin{itemize}
+\item Enemies can attack the player
+\item The player can attack enemies
+\item Enemies can "detect" the player
+\item Enemies can attack the flag
+
+\end{itemize}
+\section{Character-World Interactions}
+\subsection{Items}
+Items will spawn randomly in the map.\\
+Different weapons will spawn in different regions on the map.\\
+When the player drops a weapon or the flag, it will drop a few meters away. This allows the player to "juggle" multiple weapons if they want to and raises the skill cap of the game.
+\begin{itemize}
+\item The player can defend him/herself with the flag. It will provide a knock back affect to enemies and do a little bit of damage.
+\item The player can pick up the flag (egg)
+\item The player can drop the flag (egg)
+\item The player can pick up a weapon
+\item The player can drop a weapon
+\item The player can collect ammunition
+
+\end{itemize}
+\subsection{Movement}
+\begin{itemize}
+\item The player can aim / Move the camera with the mouse. 
+\item The player can walk in 4 directions (wasd)
+\item The player can sprint by holding down a key (shift)
+\item The player can jump (space) and can't jump again until they touch the ground
+\item The player can duck (ctrl)
+\item The player can attack (left mouse button)
+\item The player can aim down his weapon sights (right mouse button)
+\item The enemies can walk
+\end{itemize}
 
 \section{Milestones}
 \begin{adjustwidth}{2.5em}{0pt}
-\textbf{\large Milestone 1:}\\
-TODO
-\\
-\textbf{\large Milestone 2:}\\
-TODO
-\\
-\textbf{\large Milestone 3:}\\
-TODO
-\\
-\textbf{\large Milestone 4:}\\
-TODO
-\\
-\textbf{\large Milestone 5:}\\
-TODO
+\textbf{\large Milestone 1:}
+\begin{itemize}
+\item Penguin Model : Picture
+\item Penguin Movement Animation : Video
+\item Egg Model : Picture
+\item Enemy Model (Narwhal) : Picture
+\item Enemy Movement Animation : Video
+\item Map (1 location) : Pictures
+\end{itemize}
+\textbf{\large Milestone 2:}
+\begin{itemize}
+\item Player Movement : Video
+\item Player Aiming : Video
+\item Map (2 locations) : Pictures
+\item Item Spawn : Video
+\item Item pickup/ drop
+\item Enemy Movement : Video
+\item Enemy LOS : Video
+\end{itemize}
+\textbf{\large Milestone 3:}
+\begin{itemize}
+\item Map (final location) : Pictures
+\item Fire weapons : Video
+\item Enemy Spawn : Video
+\item Enemy Attack : Video
+\item Damage : video
+\item Item pick up animation : video
+\item Item drop animation
+\end{itemize}
+\textbf{\large Milestone 4:}
+\begin{itemize}
+\item Game Menu : Picture / Video
+\item Game options : Picture
+\item Game start / First Wave : video
+\item Second Wave : Video
+\end{itemize}
+\textbf{\large Milestone 5:}
+\begin{itemize}
+\item Sound effects : Video
+\item Music : Video
+\item Third Wave : video
+\item Fourth Wave : Video
+\end{itemize}
 \end{adjustwidth}
 \section{Checklist}
 \begin{todolist}
 \item notdone
 \item[\done] done
-\item a
-\item b
-\item c
+\item Penguin Model
+\item Egg Model
+\item Narwhal Model
+\item Map Base
+\item Beach Model / Texture
+\item Coral Reef Model / Texture
+\item Sunken Ship Model
+\item Volcano Model
+\item Underwater Vent Model
+\item Weapon Models
+\item Player Movement
+\item Player Item pick Up
+\item Player spawn
+\item Player respawn
+\item Enemy Spawn animation
+\item Wave Start
+\item Wave End
+\item Wave 1 Design
+\item Wave 2 Design
+\item Wave 3 Design
+\item Wave 4 Design
+\item Enemy LOS
+\item Enemy Targeting
+\item Health Items
+\item Weapon upgrades
+\item Camera Postioning
+
+
 \end{todolist}
 
 \end{document}
