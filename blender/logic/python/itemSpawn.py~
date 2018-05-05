@@ -1,0 +1,7 @@
+import bge
+
+scene = bge.logic.getCurrentScene()
+m16 = scene.addObject("m16", "ItemSpawner")
+
+for object in scene.objects:
+    print(object.name)
