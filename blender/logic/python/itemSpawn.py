@@ -1,17 +1,33 @@
 import bge
 import random
-
-def moveItem(i):
-    i.position = [random.randint(-20, 20), random.randint(-20, 20), 20]
-    print(i.position)
-return
+import time
 
 scene = bge.logic.getCurrentScene()
+ground = scene.objects["Grid"]
 
-m16 = scene.addObject("m16", "ItemSpawner")
-moveItem(m16)
-m16_1 = scene.addObject("m16.001", "ItemSpawner")
-moveItem(m16_1)
+# Moves an item to random location on x and y
+# and to the z location on the ground
+def moveItemRandToGround(obj):
+    # Assumption: The ground is below the object  
+    obj.worldPosition = [random.randint(-100, 100), random.randint(-100, 100), 100]
+    colobj, point, normal = obj.rayCast([obj.position[0], obj.position[1], -100], None, 200)
+    while (colobj is None or colobj.name != "Grid"):
+        obj.worldPosition = [random.randint(-100, 100), random.randint(-100, 100), 100]
+        colobj, point, normal = obj.rayCast([obj.position[0], obj.position[1], -100], None, 200)
 
-for object in scene.objects:
-    print(object.name)
+    print("Moving " + obj.name + " to " + colobj.name)
+    obj.worldPosition[2] = point[2] + 2
+    print(obj.worldPosition)
+
+
+m16 = []
+for i in range(10):
+    name = "m16"
+    m16.append(scene.addObject(name, "ItemSpawner"))
+    moveItemRandToGround(m16[i])
+    
+
+
+print("Done Spawning M16s")
+
+

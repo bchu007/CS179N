@@ -13,4 +13,5 @@ if (cont.sensors["Drop"].positive and cont.sensors["HasItem"].positive):
     if (player["Item"] == "playerM16"):
         playerM16.visible = False
         player["Item"] = ""
-        
+        dropObj = scene.addObject("m16", "2Ply")
+        dropObj.localLinearVelocity = [0,-8,5]
