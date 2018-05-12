@@ -15,10 +15,11 @@ def moveItemRandToGround(obj):
         obj.worldPosition = [random.randint(-100, 100), random.randint(-100, 100), 100]
         colobj, point, normal = obj.rayCast([obj.position[0], obj.position[1], -100], None, 200)
 
-    print("Moving " + obj.name + " to " + colobj.name)
     obj.worldPosition[2] = point[2] + 2
     print(obj.worldPosition)
 
+
+print("Spawning M16s")
 
 m16 = []
 for i in range(10):
