@@ -27,8 +27,11 @@ for i in range(10):
     m16.append(scene.addObject(name, "ItemSpawner"))
     moveItemRandToGround(m16[i])
     
-
-
 print("Done Spawning M16s")
+
+print("Spawning Narwhals")
+
+print("Done Spawning Narwhals")
+
 
 
