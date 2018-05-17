@@ -1,11 +1,12 @@
 import bge
+import time
+
+start = time.perf_counter()
 
 scene = bge.logic.getCurrentScene()
 cont = bge.logic.getCurrentController()
 
-print("test")
 if (cont.sensors["Drop"].positive and cont.sensors["HasItem"].positive):
-    print("Dropping Item")
     playerM16 = scene.objects["playerM16"]
     player = scene.objects["2Ply"]
     
@@ -15,3 +16,6 @@ if (cont.sensors["Drop"].positive and cont.sensors["HasItem"].positive):
         player["Item"] = ""
         dropObj = scene.addObject("m16", "2Ply")
         dropObj.localLinearVelocity = [0,-8,5]
+        
+end = time.perf_counter()
+print("Performance Log: Drop Item: " + str(end-start))

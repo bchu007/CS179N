@@ -2,6 +2,8 @@ import bge
 import random
 import time
 
+start = time.perf_counter()
+
 scene = bge.logic.getCurrentScene()
 ground = scene.objects["Grid"]
 
@@ -31,7 +33,13 @@ print("Done Spawning M16s")
 
 print("Spawning Narwhals")
 
+for i in range(10):
+    bge.logic.sendMessage("Wave1", "", "NarwhalSpawner1", "")
+
 print("Done Spawning Narwhals")
+
+end = time.perf_counter()
+print("Performance Log: Spawn Items and Enemies: " + str(end-start))
 
 
 
