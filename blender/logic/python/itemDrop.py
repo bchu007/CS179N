@@ -1,5 +1,6 @@
 import bge
 import time
+import mathutils
 
 start = time.perf_counter()
 

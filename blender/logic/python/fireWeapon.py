@@ -16,11 +16,14 @@ if player["Item"] == "playerM16":
     toVec = camera.position - camera.getScreenVect(0.5, 0.5) * 50
     
     color = [0.9, 0.9, 0.8]
-    render.drawLine(fromVec, toVec, color)
     
-    hitobj = camera.rayCastTo(toVec,200)
+    
+    hitobj, point, normal = camera.rayCast(toVec, camera.worldPosition, 200)
     if (hitobj != None and hitobj.getPropertyNames().count("health") != 0):
+        toVec = point
         hitobj["health"] -= 1
+        
+    render.drawLine(fromVec, toVec, color)
     
 end = time.perf_counter()
 print("Performance Log: Fire weapon: " + str(end-start))
