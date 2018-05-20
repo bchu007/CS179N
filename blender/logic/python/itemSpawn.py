@@ -18,7 +18,7 @@ def moveItemRandToGround(obj):
         colobj, point, normal = obj.rayCast([obj.position[0], obj.position[1], -100], None, 200)
 
     obj.worldPosition[2] = point[2] + 2
-    print(obj.worldPosition)
+
 
 
 print("Spawning M16s")
@@ -28,13 +28,15 @@ for i in range(10):
     name = "m16"
     m16.append(scene.addObject(name, "ItemSpawner"))
     moveItemRandToGround(m16[i])
+    m16[i].suspendDynamics()
     
 print("Done Spawning M16s")
 
 print("Spawning Narwhals")
 
-for i in range(10):
-    bge.logic.sendMessage("Wave1", "", "NarwhalSpawner1", "")
+## char - (n)ormal, (r)anged, (c)harge : # - number to spawn
+bge.logic.sendMessage("Spawn", "n1", "NarwhalSpawner1", "")
+bge.logic.sendMessage("Spawn", "n1", "NarwhalSpawner2", "")
 
 print("Done Spawning Narwhals")
 
