@@ -13,13 +13,13 @@ def moveObjRandToGround(obj):
     # !!!! Problem: Increases Likelhood of spawning off map
     # !!!! Solution: Bound values to map boundries
     while (colobj is None or colobj.name != "Grid"):
-        print("Trying to spawn again: " + str((randDistance-3)))
         obj.worldPosition += mathutils.Vector((random.randint(-randDistance, randDistance), random.randint(-randDistance, randDistance), 100))
         colobj, point, normal = obj.rayCast([obj.position[0], obj.position[1], -100], None, 200)
         randDistance += 1
         if (randDistance >= 10):
-            print("Aborting Spawning")
-            ## TODO
+            print("ERROR: Aborting Spawning")
+            obj.endObject()
+            return
     obj.worldPosition[2] = point[2] + 3
 
 scene = bge.logic.getCurrentScene()

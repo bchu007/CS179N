@@ -32,14 +32,6 @@ for i in range(10):
     
 print("Done Spawning M16s")
 
-print("Spawning Narwhals")
-
-## char - (n)ormal, (r)anged, (c)harge : # - number to spawn
-bge.logic.sendMessage("Spawn", "n1", "NarwhalSpawner1", "")
-bge.logic.sendMessage("Spawn", "n1", "NarwhalSpawner2", "")
-
-print("Done Spawning Narwhals")
-
 end = time.perf_counter()
 print("Performance Log: Spawn Items and Enemies: " + str(end-start))
 
