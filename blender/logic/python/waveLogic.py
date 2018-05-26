@@ -1,4 +1,5 @@
 import bge
+import itemSpawn
 
 scene = bge.logic.getCurrentScene()
 owner = bge.logic.getCurrentController().owner
@@ -7,9 +8,21 @@ int = owner["GameTime"]
 wave = owner["Wave"]
 
 if (wave == 1):
+    if (int == 0):
+        ## Spawn Egg and guns
+        ## Egg
+        egg = scene.addObject("Egg", "ItemSpawner")
+        itemSpawn.moveItemToGround(egg)
+        egg.suspendDynamics()
+        ## M16
+        for i in range(30):
+            itemSpawn.spawnGun("m16")
+        ## Health Pack
+        for i in range(10):
+            itemSpawn.spawnGun("HealthPack")
     if (int == 10):
         print("Wave 1 start")
-        print("TODO: Spawn Guns")
+        
         bge.logic.sendMessage("Spawn", "n1", "NarwhalSpawner1", "")
         bge.logic.sendMessage("Spawn", "n1", "NarwhalSpawner3", "")
         bge.logic.sendMessage("Spawn", "n1", "NarwhalSpawner5", "")

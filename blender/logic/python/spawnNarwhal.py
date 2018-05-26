@@ -22,6 +22,7 @@ def moveObjRandToGround(obj):
             return
     obj.worldPosition[2] = point[2] + 3
 
+## Start
 scene = bge.logic.getCurrentScene()
 cont = bge.logic.getCurrentController()
 spawner = cont.owner
@@ -30,7 +31,6 @@ message = cont.sensors["Spawn"]
 list = message.bodies
 
 for m in list:
-    print("Recieved Message: " + m)
     narwhalToSpawn = ""
     ## m[0] char - (n)ormal, (r)anged, (c)harge
     ## m[1] int - number to spawn
@@ -40,7 +40,6 @@ for m in list:
         narwhalToSpawn = "NarwhalRangedArmature"
         
     for i in range(0, int(m[1])):
-        print("Spawning")
         obj = scene.addObject(narwhalToSpawn, spawner)
         moveObjRandToGround(obj)
     

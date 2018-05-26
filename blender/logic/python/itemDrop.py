@@ -5,18 +5,31 @@ import mathutils
 start = time.perf_counter()
 
 scene = bge.logic.getCurrentScene()
+player = scene.objects["2Ply"]
 cont = bge.logic.getCurrentController()
 
-if (cont.sensors["Drop"].positive and cont.sensors["HasItem"].positive):
-    playerM16 = scene.objects["playerM16"]
-    player = scene.objects["2Ply"]
+def dropItem(obj):
+    playerObj = "player" + obj
+    scene = bge.logic.getCurrentScene()
+    scene.objects[playerObj].visible = False
+    scene.objects["2Ply"]["Item"] = ""
+    dropObj = scene.addObject(obj, "2Ply")
+    dropObj.localLinearVelocity = [0,-8,5]
+    if (obj != "Egg"):
+        dropObj["Ammo"] = scene.objects[playerObj]["Ammo"]
+        scene.objects[playerObj]["Ammo"] = 0
+        
+    return dropObj
+
     
+if (cont.sensors["Drop"].positive and cont.sensors["HasItem"].positive):
     player["HasItem"] = False
-    if (player["Item"] == "playerM16"):
-        playerM16.visible = False
-        player["Item"] = ""
-        dropObj = scene.addObject("m16", "2Ply")
-        dropObj.localLinearVelocity = [0,-8,5]
+    
+    if (player["Item"] == "Egg"):
+        dropItem("Egg")
+    elif (player["Item"] == "m16"):
+        print("Drop M16")
+        dropItem("m16")
         
 end = time.perf_counter()
 print("Performance Log: Drop Item: " + str(end-start))
