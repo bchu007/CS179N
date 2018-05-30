@@ -1,3 +1,5 @@
+Instead of working and the final few waves we worked on the list below.
+
 List of additions
      - Added Egg that 2Ply can pick up / drop
      - Guns now have ammo and retain there ammo upon drop / pickup

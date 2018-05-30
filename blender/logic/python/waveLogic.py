@@ -14,11 +14,12 @@ if (wave == 1):
         egg = scene.addObject("Egg", "ItemSpawner")
         itemSpawn.moveItemToGround(egg)
         egg.suspendDynamics()
-        ## M16
-        for i in range(30):
+        ## Guns
+        for i in range(20):
             itemSpawn.spawnGun("m16")
+            itemSpawn.spawnGun("RocketLauncher")
         ## Health Pack
-        for i in range(10):
+        for i in range(5):
             itemSpawn.spawnGun("HealthPack")
     if (int == 10):
         print("Wave 1 start")
