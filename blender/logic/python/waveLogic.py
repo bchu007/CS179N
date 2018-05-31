@@ -18,6 +18,7 @@ if (wave == 1):
         for i in range(20):
             itemSpawn.spawnGun("m16")
             itemSpawn.spawnGun("RocketLauncher")
+            itemSpawn.spawnGun("Shotgun")
         ## Health Pack
         for i in range(5):
             itemSpawn.spawnGun("HealthPack")
