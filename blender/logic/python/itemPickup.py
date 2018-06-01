@@ -35,7 +35,7 @@ def dropItem(obj):
 
 start = time.perf_counter()
 
-if (cont.sensors["Mouse"].positive and cont.sensors["Keyboard"].positive and (player["PickupCooldown"] == 0)):    
+if (cont.sensors["Mouse"].positive and cont.sensors["Pickup"].positive and (player["PickupCooldown"] == 0)):    
     playerM16 = scene.objects["playerm16"]
     playerRocketLauncher = scene.objects["playerRocketLauncher"]
     playerShotgun = scene.objects["playerShotgun"]

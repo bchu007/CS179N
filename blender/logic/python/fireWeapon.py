@@ -40,6 +40,9 @@ if status == bge.logic.KX_INPUT_JUST_ACTIVATED or status == bge.logic.KX_INPUT_A
                 toVec = point
                 hitobj["health"] -= m16Damage
                 print("INFO: Hit " + hitobj.name + " with rifle")
+                if ("DamageSound" in hitobj.actuators):
+                    hitobj.actuators["DamageSound"].stopSound()
+                    hitobj.actuators["DamageSound"].startSound()
                 
             render.drawLine(fromVec, toVec, color)
         ## Get rid of gun if ammo is now 0
@@ -88,6 +91,9 @@ if status == bge.logic.KX_INPUT_JUST_ACTIVATED or status == bge.logic.KX_INPUT_A
                 if (hitobj != None and hitobj.getPropertyNames().count("health") != 0):
                     hitobj["health"] -= shotgunDamage
                     print("INFO: Hit " + hitobj.name + " with shotgun")
+                    if ("DamageSound" in hitobj.actuators):
+                        hitobj.actuators["DamageSound"].stopSound()
+                        hitobj.actuators["DamageSound"].startSound()
                 
                 ## Draw Vec
                 fromVec = flare.worldPosition
