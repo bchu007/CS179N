@@ -15,7 +15,7 @@ if (wave == 1):
         itemSpawn.moveItemToGround(egg)
         egg.suspendDynamics()
         ## Guns
-        for i in range(20):
+        for i in range(10):
             itemSpawn.spawnGun("m16")
             itemSpawn.spawnGun("RocketLauncher")
             itemSpawn.spawnGun("Shotgun")
