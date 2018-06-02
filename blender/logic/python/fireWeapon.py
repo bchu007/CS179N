@@ -34,7 +34,11 @@ if status == bge.logic.KX_INPUT_JUST_ACTIVATED or status == bge.logic.KX_INPUT_A
             fromVec = flare.worldPosition
             toVec = camera.worldPosition - (camera.getScreenVect(0.5, 0.5) * 50)
             
-            hitobj, point, normal = camera.rayCast(toVec, camera.worldPosition, 200, "Enemy")
+            ## Play Sound
+            playerM16.actuators["Sound"].stopSound()
+            playerM16.actuators["Sound"].startSound()
+            
+            hitobj, point, normal = camera.rayCast(toVec, camera.worldPosition, 200, "Enemy", 0, 1)
             ## Calc hit damage
             if (hitobj != None and hitobj.getPropertyNames().count("health") != 0):
                 toVec = point
@@ -60,6 +64,10 @@ if status == bge.logic.KX_INPUT_JUST_ACTIVATED or status == bge.logic.KX_INPUT_A
             playerRocketLauncher["Ammo"] -= 1
             player["RocketCooldown"] = 60
             
+            ## Play Sound
+            playerRocketLauncher.actuators["Sound"].stopSound()
+            playerRocketLauncher.actuators["Sound"].startSound()
+            
             rocket = scene.addObject("Rocket", "playerRocketLauncherTip", 60)
             toVec = -(camera.getScreenVect(0.5, 0.5) * 50)
             rocket.alignAxisToVect(toVec, 0)
@@ -81,12 +89,20 @@ if status == bge.logic.KX_INPUT_JUST_ACTIVATED or status == bge.logic.KX_INPUT_A
             
             ## Get vec to center screen
             toVec = camera.worldPosition - (camera.getScreenVect(0.5, 0.5) * shotgunRange)
+            ## Play Sound
+            playerShotgun.actuators["Sound"].stopSound()
+            playerShotgun.actuators["Sound"].startSound()
             
             ## Fire pellets
             for i in range(shotgunPellets):
                 rand = mathutils.Vector((random.randrange(-shotgunSpread, shotgunSpread, 1), random.randrange(-shotgunSpread, shotgunSpread, 1), random.randrange(-shotgunSpread, shotgunSpread, 1)))
                 vec = toVec + rand
-                hitobj, point, normal = camera.rayCast(vec, camera.worldPosition, shotgunRange, "Enemy")
+                
+                ## Draw Vec
+                fromVec = flare.worldPosition
+                render.drawLine(fromVec, vec, color)
+                
+                hitobj, point, normal = camera.rayCast(vec, camera.worldPosition, shotgunRange, "Enemy", 0, 1)
                 ## Calc hit damage
                 if (hitobj != None and hitobj.getPropertyNames().count("health") != 0):
                     hitobj["health"] -= shotgunDamage
@@ -95,9 +111,7 @@ if status == bge.logic.KX_INPUT_JUST_ACTIVATED or status == bge.logic.KX_INPUT_A
                         hitobj.actuators["DamageSound"].stopSound()
                         hitobj.actuators["DamageSound"].startSound()
                 
-                ## Draw Vec
-                fromVec = flare.worldPosition
-                render.drawLine(fromVec, vec, color)
+                
         ## Get rid of gun if ammo is now 0
         if (playerShotgun["Ammo"] == 0):
             itemSpawn.spawnGun("Shotgun")

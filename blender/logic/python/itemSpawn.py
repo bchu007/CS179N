@@ -23,7 +23,7 @@ def moveItemRandToGround(obj):
 
 def moveItemToGround(obj):
     colobj, point, normal = obj.rayCast([obj.position[0], obj.position[1], -100], None, 200)
-    obj.worldPosition[2] = point[2] + 1
+    obj.worldPosition[2] = point[2] + 2
 
 def spawnGun(obj):
     print("INFO: Spawning " + obj)

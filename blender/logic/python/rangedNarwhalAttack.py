@@ -15,7 +15,7 @@ globalvec.normalize()
 projectile.setLinearVelocity(globalvec*velocity)
 
 # Stall the narwhal
-narwhal = horn.parent
+narwhal = horn.parent.parent
 narwhal["Count"] = 0
 narwhal["Stall"] = True
 narwhal.setLinearVelocity([0,0,0])

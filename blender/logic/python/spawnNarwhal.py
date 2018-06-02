@@ -2,6 +2,10 @@ import bge
 import random
 import mathutils
 
+scene = bge.logic.getCurrentScene()
+cont = bge.logic.getCurrentController()
+spawner = cont.owner
+
 # Moves the narwhal to random position +-8 away from spawner
 def moveObjRandToGround(obj):
     # Assumption: The ground is below the object 
@@ -17,16 +21,12 @@ def moveObjRandToGround(obj):
         colobj, point, normal = obj.rayCast([obj.position[0], obj.position[1], -100], None, 200)
         randDistance += 1
         if (randDistance >= 10):
-            print("ERROR: Aborting Spawning")
+            print("ERROR: Aborting Spawning at: " + spawner.name)
             obj.endObject()
             return
     obj.worldPosition[2] = point[2] + 3
 
 ## Start
-scene = bge.logic.getCurrentScene()
-cont = bge.logic.getCurrentController()
-spawner = cont.owner
-
 message = cont.sensors["Spawn"]
 list = message.bodies
 
@@ -38,6 +38,8 @@ for m in list:
         narwhalToSpawn = "NarwhalArmature"
     elif m[0] == 'r':
         narwhalToSpawn = "NarwhalRangedArmature"
+    elif m[0] == 'c':
+        narwhalToSpawn = "NarwhalChargeArmature"
         
     for i in range(0, int(m[1])):
         obj = scene.addObject(narwhalToSpawn, spawner)
