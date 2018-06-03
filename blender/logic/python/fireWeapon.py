@@ -120,4 +120,4 @@ if status == bge.logic.KX_INPUT_JUST_ACTIVATED or status == bge.logic.KX_INPUT_A
             player["HasItem"] = False
         
     end = time.perf_counter()
-    print("Performance Log: Fire weapon: " + str(end-start))
+    ##print("Performance Log: Fire weapon: " + str(end-start))

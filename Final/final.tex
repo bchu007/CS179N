@@ -1,0 +1,265 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{changepage}
+\usepackage{hyperref}
+
+\usepackage{enumitem,amssymb}
+\newlist{todolist}{itemize}{2}
+\setlist[todolist]{label=$\square$}
+\usepackage{pifont}
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\done}{\rlap{$\square$}{\raisebox{1pt}{\large\hspace{1pt}\cmark}}%
+\hspace{-2.5pt}}
+
+\title{Final Report}
+\author{Brandon Gutzmann\\Newton Hoac\\Brian Chu\\Benjamin Li\\Jung Yu Chang}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\section{Overview}
+\textbf{Game Engine:} Blender Game Engine\\
+\textbf{Genre:} 3D Third-person Shooter Survival\\
+\textbf{Title:} Narwhals of Good Sleep
+
+\section{Assets}
+\begin{itemize}
+\item In-House: 2Ply the Penguin
+\item In-House: Balloon Mine
+\item In-House: Narwhals
+\item In-House: Gnar the Narwhal King
+\item In-House: Tree Thing
+\item In-House: Ground Terrain
+\item In-House: Egg
+\item Outsourced: M16 Rifle\\
+	Location: \url{https://www.turbosquid.com/FullPreview/Index.cfm/ID/523322}\\
+    License: \url{https://blog.turbosquid.com/royalty-free-license/#Royalty-Free-License}\\
+    Royalty Free License
+   
+\item Outsourced: Rocket\\
+	Location: \url{https://www.turbosquid.com/FullPreview/Index.cfm/ID/612228}\\
+    License: \url{https://blog.turbosquid.com/royalty-free-license/#Royalty-Free-License}\\
+    Royalty Free License
+    
+\item Outsourced: Shotgun\\
+	Location: \url{https://www.turbosquid.com/FullPreview/Index.cfm/ID/783001}
+    License: \url{https://blog.turbosquid.com/royalty-free-license/#Royalty-Free-License}\\
+    Royalty Free License
+    
+\item Outsourced: Health pack\\
+	Location: \url{https://www.turbosquid.com/FullPreview/Index.cfm/ID/514293}
+    License: \url{https://blog.turbosquid.com/royalty-free-license/#Royalty-Free-License}\\
+    Royalty Free License
+    
+\item Outsourced: Warship\\
+	Location: \url{https://www.turbosquid.com/FullPreview/Index.cfm/ID/516968}
+	License: \url{https://blog.turbosquid.com/royalty-free-license/#Royalty-Free-License}\\
+    Royalty Free License
+
+\item Outsourced: Corals\\
+	Location: \url{https://sketchfab.com/models/38c8e30796184242a232c443fb73b174}
+	License: \url{https://sketchfab.com/licenses}
+
+\item Outsourced: Sandbag\\
+	Location:
+\url{https://www.cgtrader.com/free-3d-models/military/other/sandbag-1}
+License: \url{https://www.cgtrader.com/pages/terms-and-conditions}
+
+\item Outsourced: Volcano\\
+	Location:
+\url{https://www.turbosquid.com/FullPreview/Index.cfm/ID/1105265}\\
+	License: \url{https://blog.turbosquid.com/royalty-free-license/#Royalty-Free-License}\\
+    Royalty Free License
+    
+\item Outsourced: Jellyfish\\
+	Location:
+\url{https://www.turbosquid.com/FullPreview/Index.cfm/ID/837316}\\
+	License: \url{https://blog.turbosquid.com/royalty-free-license/#Royalty-Free-License}\\
+    Royalty Free License
+    
+\item Outsourced: Fish+Coral+Stone\\
+	Location:
+\url{https://www.cgtrader.com/free-3d-models/animals/fish/under-the-sea-animation}\\
+	License: \url{https://www.cgtrader.com/pages/terms-and-conditions}
+	
+\item Outsourced: Laser Sound Effect\\
+	Location: 
+\url{https://freesound.org/people/chipfork/sounds/72639/}\\
+	License: 
+\url{https://creativecommons.org/licenses/by/3.0/}
+
+\item Outsourced: Short Laser Sound Effect\\
+	Location:
+\url{https://freesound.org/people/tjcason/sounds/390474/}\\
+	License:
+\url{https://creativecommons.org/publicdomain/zero/1.0/}
+
+\item Outsourced: 2-ply Grunt Sound Effect\\
+	Location:
+\url{https://freesound.org/people/whisperbandnumber1/sounds/397276/}\\
+	License:
+\url{https://creativecommons.org/publicdomain/zero/1.0/}
+
+\item Outsourced: Underwater Ambience\\
+	Location:
+\url{https://freesound.org/people/scratchikken/sounds/115610/}\\
+	License:
+\url{https://creativecommons.org/licenses/by/3.0/}
+
+\item Outsourced: M-16 Gunfire Soundeffect\\
+	Location:
+\url{http://www.freesfx.co.uk/rx2/mp3s/6/17950_1464205216.mp3}\\
+	License:
+\url{http://www.freesfx.co.uk/info/eula/}
+
+\item Outsourced: Rocket Launcher Soundeffect\\
+	Location:
+\url{http://www.freesfx.co.uk/rx2/mp3s/6/18023_1464273629.mp3}\\
+	License:
+\url{http://www.freesfx.co.uk/info/eula/}
+
+\item Outsourced: Shotgun Soundeffect\\
+	Location:
+\url{http://www.freesfx.co.uk/rx2/mp3s/4/16551_1460656891.mp3}\\
+	License:
+\url{http://www.freesfx.co.uk/info/eula/}
+
+\item Outsourced: Background Music\\
+	Location:
+\url{http://www.freesfx.co.uk/rx2/mp3s/6/17825_1462215987.mp3}\\
+	License:
+\url{http://www.freesfx.co.uk/info/eula/}
+
+\item Outsourced: 2-ply damage\\
+	Location:
+\url{http://www.freesfx.co.uk/rx2/mp3s/4/16643_1460665407.mp3}\\
+	License:
+\url{http://www.freesfx.co.uk/info/eula/}
+
+
+
+\end{itemize}
+
+\section{Objectives}
+\subsection{Models and animation}
+\begin{itemize}
+\item 2-ply\\
+	Model: Yes\\
+    Animations: Partial. Basic movement animations are there. Missing animations with items equipped.
+
+\item Egg\\
+	Model: Yes\\
+    Animations: Yes\\
+    Egg Attack: No
+
+\item Nightmare Narwhal\\
+	Model: Yes\\
+    Attack animation: Yes\\
+    Movement animation: Yes
+    
+\item Ranged Narwhal\\
+	Model: Yes\\
+    Attack animation: Yes\\
+    Movement animation: Yes
+    
+\item Speedy Narwhal:
+	
+\item Gnar\\
+	Model: Yes\\
+    Attack animation: Yes
+    
+\item Sunken Ship: Yes
+
+\item Volcano: Yes
+
+\item Underwater Vents: Yes
+
+\item Coral Reef: Yes
+
+\item Beach: Yes
+
+\item Sniper: Scrapped\\
+	We decided to take out zoom because our camera is third person. This makes the sniper rifle kind of useless. Also it wouldn't be unique enough from the rifle.
+
+\item Rifle: Yes
+
+\item Shotgun: Yes
+
+\item Grenade Launcher: Replaced with Rocket Launcher
+
+\item Health Packs: Yes
+
+\item Ammo Packs: Replaced with gun pickup. Picking up a gun of the same type gives the player more ammo.
+\end{itemize}
+
+\subsection{AI}
+\begin{itemize}
+\item Enemy LOS: No
+
+\item Enemy Targeting: Yes (Partial)\\
+	We didn't get enemies to target the egg. Just not enough time. We also couldn't get a navmesh to work with our terrain.
+
+\item Enemy Damage: Yes (Partial)\\
+	Not all enemy attacks do damage to the egg.\\
+    The orbital laser does damage to the egg.
+
+\item Gnar Attacks: One of two planned.\\
+	Orbital Laser works.\\
+    We didn't implement the laser that shoots from his horn. Just not enough time.
+
+\item Enemy Spawn: Yes
+\end{itemize}
+
+\subsection{Player}
+\begin{itemize}
+\item 2-Ply\\
+	Shoot Gun: Partial\\
+    Item Pickup: Yes\\
+    Item Drop: Yes\\
+    Movement: Yes\\
+    Aim: Yes\\
+    Look down sights: Scrapped\\
+    	It doesn't really work with how we have the camera set up. We could move the camera closer looking down sights works however, 2Ply would take up too much screen space. If we wanted to get it to work we probably would have had to remodel 2Ply and we didn't want to do that.
+    Spawn: Yes
+\end{itemize}
+
+\subsection{Wave}
+\begin{itemize}
+\item 1-4: Yes
+\item 5: Yes
+\item Start: Yes
+\item End Detection: Yes
+\end{itemize}
+
+\subsection{Sound}
+\begin{itemize}
+\item Sniper: Scrapped
+\item Rifle:Yes
+\item Grenade Launcher: Yes
+\item Shotgun: Yes
+\item Egg: N/A
+\item 2-Ply Damage: Yes
+\item Enemy Damage: Yes
+\item Egg Damage: No
+	We didn't get AI to target the Egg.\\
+    The orbital laser can damage the Egg.\\
+    The Egg can not die.
+\item Background: Yes
+\end{itemize}
+
+\subsection{Game}
+\begin{itemize}
+\item Game Menu: Yes
+\item Game Start: Yes
+\item Game End: Yes
+\end{itemize}
+
+\subsection{Extra}
+\begin{itemize}
+\item 2Ply can jump
+\item Health bar at the top of the screen
+\end{itemize}
+\end{document}

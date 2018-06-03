@@ -9,21 +9,30 @@ spawner = cont.owner
 # Moves the narwhal to random position +-8 away from spawner
 def moveObjRandToGround(obj):
     # Assumption: The ground is below the object 
-    randDistance = 10 
-    obj.worldPosition += mathutils.Vector((random.randint(-randDistance, randDistance), random.randint(-randDistance, randDistance), 90))
-    colobj, point, normal = obj.rayCast([obj.position[0], obj.position[1], -100], None, 200)
+    randDistance = 1
+    pos = obj.worldPosition
+    pos += mathutils.Vector((random.randint(-randDistance, randDistance), random.randint(-randDistance, randDistance), 0))
+    pos[2] = 90
+    colobj, point, normal = obj.rayCast([pos[0], pos[1], -100], None, 200)
+    
     # If the narwhal didn't collide with the grid then re randomize its position
     # Increase the random distance it can spawn from spawner in case its getting stuck on other spawned narwhals
     # !!!! Problem: Increases Likelhood of spawning off map
     # !!!! Solution: Bound values to map boundries
     while (colobj is None or colobj.name != "Grid"):
-        obj.worldPosition += mathutils.Vector((random.randint(-randDistance, randDistance), random.randint(-randDistance, randDistance), 90))
-        colobj, point, normal = obj.rayCast([obj.position[0], obj.position[1], -100], None, 200)
+        pos = obj.worldPosition
+        pos += mathutils.Vector((random.randint(-randDistance, randDistance), random.randint(-randDistance, randDistance), 0))
+        pos[2] = 90
+        colobj, point, normal = obj.rayCast([pos[0], pos[1], -100], None, 200)
         randDistance += 1
-        if (randDistance >= 10):
+        if (colobj is not None):
+            print(colobj.name)
+        if (randDistance >= 30):
             print("ERROR: Aborting Spawning at: " + spawner.name)
             obj.endObject()
             return
+    
+    obj.worldPosition = pos
     obj.worldPosition[2] = point[2] + 3
 
 ## Start
